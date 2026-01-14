@@ -57,8 +57,6 @@
 //     </html>
 //   );
 // }
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
 import Footer from "@/components/global/Footer";
 import "./globals.css";
 import { Barlow, Inter } from "next/font/google";
@@ -134,6 +132,14 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en" className={`${barlow.variable} ${inter.variable}`}>
+      <head>
+        {/* Preconnect to external domains */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://phpstack-725513-2688800.cloudwaysapps.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://code.tidio.co" />
+      </head>
       <body className="antialiased">
         {/* ✅ Schema (THIS WORKS IN APP ROUTER) */}
         <Script
@@ -149,10 +155,10 @@ export default function RootLayout({ children }) {
         {/* ✅ Added Google Analytics 4 (gtag.js) */}
         <GoogleAnalytics gaId="G-2VB35ZXSZY" />
 
-        {/* Third-party chat */}
+        {/* Third-party chat - Load lazily */}
         <Script
           src="https://code.tidio.co/ie0hwxpri9o05xhjbf2zly2wuom4y6ri.js"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
 
         <NavProvider>

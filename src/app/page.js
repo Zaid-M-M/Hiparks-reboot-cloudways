@@ -10,6 +10,8 @@ export const metadata = {
     "Horizon Industrial Parks offers Grade A portfolios of high-quality, modern industrial and logistics parks across India",
 };
 
+export const revalidate = 3600; // Cache for 1 hour
+
 export default function Home() {
   return (
     <>

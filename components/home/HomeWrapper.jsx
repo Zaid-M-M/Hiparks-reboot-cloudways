@@ -1,34 +1,22 @@
 "use client";
 import React from "react";
-import TabbedContentShowcase from "./TabbedContentShowcase/TabbedContentShowcase";
-import BrandShowcase from "./Brands/BrandShowcase";
-import KeySectors from "./keySectors";
-import IntegratedSolutionsSection from "./IntegratedSolutions/IntegratedSolutionsSection";
-import MapWrapperOld from "./Map/MapWrapperOld";
+import dynamic from "next/dynamic";
 import { ReactLenis, useLenis } from "lenis/react";
 import HeroBannerClient from "./Hero/HeroBannerClient";
-import MobileMapWrapper from "./Map/mobile/MobileMapWrapper";
-import ScrollVideoSection from "./ScrollReveal/ScrollRevealSection";
-import TestScroll from "./ScrollReveal/Testscroll";
-import WhatNew from "./whatNew/page";
-import Sustainaibility from "./Sustainaibility/Sustainaibility";
-import ScrollSection from "./Sustainaibility/ScrollSection";
 import Agile from "./Agile/page";
-import MobileSustainaibility from "./Sustainaibility/mobile/MobileSustainaibility";
-import MobileScrollSection from "./ScrollReveal/MobileScrollSection";
-import Portfolio from "./Portfolio/Portfolio";
-import HomeMapWrapper from "./Map/MapWrapper";
 import Screen from "./Stats/Screen";
-import Screen2 from "./Sustainaibility/Screen2";
 import MobileScreen from "./Stats/MobileScreen";
-import ZoomableSVGMap from "./Map/ZoomableSVGMap";
 
-import MapWrapper from "./Map/MapWrapper";
-import InCityZoomable from "./Map/InCityZoomable";
-import MapSection from "./Map/MapSection";
-import HomeMobileMapSection from "./Map/HomeMobileMapSection";
-import TestMain from "./testimonials/TestMain";
-// import CardShowcase from "./Hero/CardShowcase";
+// Dynamically import below-the-fold components
+const MapSection = dynamic(() => import("./Map/MapSection"), { ssr: false });
+const HomeMobileMapSection = dynamic(() => import("./Map/HomeMobileMapSection"), { ssr: false });
+const IntegratedSolutionsSection = dynamic(() => import("./IntegratedSolutions/IntegratedSolutionsSection"));
+const KeySectors = dynamic(() => import("./keySectors"));
+const TestMain = dynamic(() => import("./testimonials/TestMain"));
+const BrandShowcase = dynamic(() => import("./Brands/BrandShowcase"));
+const Screen2 = dynamic(() => import("./Sustainaibility/Screen2"));
+const MobileSustainaibility = dynamic(() => import("./Sustainaibility/mobile/MobileSustainaibility"));
+const TabbedContentShowcase = dynamic(() => import("./TabbedContentShowcase/TabbedContentShowcase"));
 
 const HomeWrapper = ({ heroData, testimonials = [] }) => {
   useLenis(() => {});
@@ -50,18 +38,6 @@ const HomeWrapper = ({ heroData, testimonials = [] }) => {
         <MobileScreen />
         <MapSection />
         <HomeMobileMapSection />
-        {/* <MapWrapper
-          MapComponent={InCityZoomable}
-          title="Incity Centers Finder"
-          subtitle="Grow Your World In Ours"
-          type="incity"
-        /> */}
-        {/* <MapWrapper
-          MapComponent={ZoomableSVGMap}
-          title="Park Finder"
-          subtitle="Grow Your World In Ours"
-          type="industrial"
-        /> */}
         <IntegratedSolutionsSection />
         <KeySectors />
         <TestMain testimonials={testimonials} />

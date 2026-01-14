@@ -1,11 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    instrumentationHook: true,
-  },
-  trailingSlash: true, // Crucial for PHP servers
+  trailingSlash: true,
   images: {
-    unoptimized: true,
+    unoptimized: false, // Enable image optimization
     remotePatterns: [
       {
         protocol: "https",
