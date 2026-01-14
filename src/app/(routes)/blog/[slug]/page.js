@@ -1,5 +1,25 @@
 import BlogDetailWrapper from "@/components/insights/BlogDetailWrapper";
 
+export const revalidate = 3600; // ISR: Revalidate every hour
+export const dynamic = 'force-static'; // Enable static generation
+export const dynamicParams = true; // Generate new pages on-demand
+
+export async function generateStaticParams() {
+  const BASE = "https://phpstack-725513-2688800.cloudwaysapps.com/cms/wp-json/wp/v2";
+  
+  try {
+    const posts = await fetch(`${BASE}/posts?per_page=100`, {
+      next: { revalidate: 3600 }
+    }).then((res) => res.ok ? res.json() : []);
+    
+    return posts.map((post) => ({
+      slug: post.slug,
+    }));
+  } catch {
+    return [];
+  }
+}
+
 export async function generateMetadata({ params }) {
   const { slug } = await params;
 
@@ -7,7 +27,7 @@ export async function generateMetadata({ params }) {
     "https://phpstack-725513-2688800.cloudwaysapps.com/cms/wp-json/wp/v2";
 
   const posts = await fetch(`${BASE}/posts?slug=${slug}&_embed=true`, {
-    cache: "no-store",
+    next: { revalidate: 3600 } // ISR cache
   }).then((res) => (res.ok ? res.json() : null));
 
   if (!posts || posts.length === 0) {
@@ -45,7 +65,7 @@ export default async function BlogDetailPage({ params }) {
     "https://phpstack-725513-2688800.cloudwaysapps.com/cms/wp-json/wp/v2";
 
   async function get(url) {
-    const res = await fetch(url, { cache: "no-store" });
+    const res = await fetch(url, { next: { revalidate: 3600 } });
     if (!res.ok) return null;
     return res.json();
   }

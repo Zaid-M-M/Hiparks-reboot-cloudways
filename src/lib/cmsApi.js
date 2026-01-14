@@ -10,9 +10,10 @@ class WordPressCMSAPI {
    * Generic method to fetch data from WordPress API
    * @param {string} endpoint - API endpoint
    * @param {object} params - Query parameters
+   * @param {number} revalidate - ISR revalidation time in seconds (default: 3600)
    * @returns {Promise<any>} - API response
    */
-  async fetchData(endpoint, params = {}) {
+  async fetchData(endpoint, params = {}, revalidate = 3600) {
     try {
       // Build query parameters
       const queryParams = new URLSearchParams({
@@ -30,7 +31,9 @@ class WordPressCMSAPI {
 
       console.log(`Fetching from: ${url}`);
 
-      const response = await fetch(url);
+      const response = await fetch(url, {
+        next: { revalidate } // ISR cache
+      });
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);

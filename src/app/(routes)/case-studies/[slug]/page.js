@@ -247,11 +247,29 @@ import CaseStudyDetailWrapper from "@/components/case-studies/CaseStudyDetailWra
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 
-// Force SSR, no caching
-export const dynamic = "force-dynamic";
+export const revalidate = 3600; // ISR: Revalidate every hour
+export const dynamic = 'force-static';
+export const dynamicParams = true;
 
 const BASE =
   "https://phpstack-725513-2688800.cloudwaysapps.com/cms/wp-json/wp/v2";
+
+export async function generateStaticParams() {
+  try {
+    const res = await fetch(`${BASE}/client_stories?per_page=100`, {
+      next: { revalidate: 3600 }
+    });
+    
+    if (!res.ok) return [];
+    
+    const stories = await res.json();
+    return stories.map((story) => ({
+      slug: story.slug,
+    }));
+  } catch {
+    return [];
+  }
+}
 
 // Reuse the same formatting logic as in your components
 function formatMediaUrl(url) {
@@ -267,7 +285,7 @@ async function fetchCaseStudyBySlug(slug) {
     const res = await fetch(
       `${BASE}/client_stories?slug=${encodeURIComponent(slug)}`,
       {
-        cache: "no-store",
+        next: { revalidate: 3600 } // ISR cache
       }
     );
 

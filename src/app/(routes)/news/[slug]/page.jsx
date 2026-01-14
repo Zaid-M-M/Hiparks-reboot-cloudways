@@ -3,11 +3,29 @@ import NDHero from "./components/NDHero";
 import NDContent from "./components/NDContent";
 import FormSec from "@/components/Factory/Formsec";
 
-// Force SSR with no caching
-export const dynamic = "force-dynamic";
+export const revalidate = 3600; // ISR: Revalidate every hour
+export const dynamic = 'force-static';
+export const dynamicParams = true;
 
 const WP_BASE =
   "https://phpstack-725513-2688800.cloudwaysapps.com/cms/wp-json/wp/v2";
+
+export async function generateStaticParams() {
+  try {
+    const res = await fetch(`${WP_BASE}/media_news?per_page=100`, {
+      next: { revalidate: 3600 }
+    });
+    
+    if (!res.ok) return [];
+    
+    const news = await res.json();
+    return news.map((item) => ({
+      slug: item.slug,
+    }));
+  } catch {
+    return [];
+  }
+}
 
 /**
  * Format WordPress uploads URL → frontend URL
@@ -26,7 +44,7 @@ function formatMediaUrl(url) {
 async function fetchMediaNewsBySlug(slug) {
   try {
     const res = await fetch(`${WP_BASE}/media_news?slug=${slug}`, {
-      cache: "no-store",
+      next: { revalidate: 3600 } // ISR cache
     });
 
     if (!res.ok) {

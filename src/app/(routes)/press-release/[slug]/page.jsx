@@ -94,6 +94,24 @@ import PDHero from "../components/PDHero";
 import PDContent from "../components/PDContent";
 import { formatMediaUrl } from "@/src/utils/formatMediaUrl";
 
+export const revalidate = 3600; // ISR: Revalidate every hour
+export const dynamic = 'force-static';
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  try {
+    const result = await cmsApi.getPressReleases({ per_page: 100 });
+    
+    if (!result.success || !result.data) return [];
+    
+    return result.data.map((pr) => ({
+      slug: pr.slug,
+    }));
+  } catch {
+    return [];
+  }
+}
+
 // Dynamic metadata — Next.js 16 App Router way
 export async function generateMetadata({ params }) {
   const { slug } = await params;

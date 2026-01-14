@@ -1,6 +1,8 @@
 import React from "react";
 import InsightsWrapper from "@/components/insights/InsightsWrapper";
 
+export const revalidate = 1800; // ISR: Revalidate every 30 minutes
+
 export const metadata = {
   title: "Industrial and Warehousing Blog - Horizon Industrial Parks",
   description:
