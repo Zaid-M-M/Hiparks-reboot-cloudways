@@ -208,7 +208,7 @@ export default function HeroBannerClient() {
         className="absolute top-0 left-0 w-full h-full object-cover z-0 lg:block hidden"
       >
         {/* <source src="/home/home.webm" type="video/mp4" /> */}
-        <source src="/home/home_desk.mp4" type="video/mp4" />
+        <source src="/home/home_desk_1.mp4" type="video/mp4" />
       </video>
       {/* 
       <div className="absolute inset-0 overflow-hidden">
@@ -226,12 +226,12 @@ export default function HeroBannerClient() {
         playsInline
         className="absolute top-0 left-0 w-full h-full object-cover z-0 lg:hidden block "
       >
-        {/* <source src="/home/home_mob.mp4" type="video/mp4" className="" /> */}
-        <source
+        <source src="/home/home_mob_1.mp4" type="video/mp4" className="" />
+        {/* <source
           src="https://phpstack-725513-2688800.cloudwaysapps.com/cms/wp-content/uploads/2025/12/home_mob.mp4"
           type="video/mp4"
           className=""
-        />
+        /> */}
       </video>
 
       {/* Overlay with content */}
