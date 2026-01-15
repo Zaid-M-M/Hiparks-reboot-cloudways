@@ -196,7 +196,7 @@ const HomeWrapper = ({ heroData, testimonials = [] }) => {
         <Agile />
 
         {/* Heavy component loads only when browser is idle */}
-        {heavyReady && <Screen />}
+        {/* {heavyReady && <Screen />} */}
 
         {/* Normal below-the-fold content */}
         {normalReady && (
@@ -214,7 +214,7 @@ const HomeWrapper = ({ heroData, testimonials = [] }) => {
         )}
 
         {/* Heaviest component LAST */}
-        {heavyReady && <Screen2 />}
+        {/* {heavyReady && <Screen2 />} */}
       </div>
     </ReactLenis>
   );
