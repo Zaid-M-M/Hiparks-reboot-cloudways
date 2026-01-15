@@ -19,7 +19,7 @@ export default function Screen() {
   const totalFrames = 689;
   const pixelsPerFrame = 5; // faster scroll (was 30)
   const [scrollHeight, setScrollHeight] = useState(0);
-  const speedFactor = 0.8; // smaller segment = faster text scroll
+  const speedFactor = 0.8; // smaller segment = faster text scrollgit
 
   // preload images
   useEffect(() => {
