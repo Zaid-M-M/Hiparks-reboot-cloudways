@@ -37,7 +37,11 @@ const HomeWrapper = ({ heroData, testimonials = [] }) => {
         {/* :fire: Priority render */}
         <HeroBannerClient heroData={heroData} />
         <Agile />
-
+        {normalReady && (
+          <>
+            <Screen />
+          </>
+        )}
         {/* :bricks: Normal render */}
         {normalReady && (
           <>
@@ -56,7 +60,6 @@ const HomeWrapper = ({ heroData, testimonials = [] }) => {
         {/* :turtle: Heavy components render last */}
         {normalReady && (
           <>
-            <Screen />
             <Screen2 />
           </>
         )}
