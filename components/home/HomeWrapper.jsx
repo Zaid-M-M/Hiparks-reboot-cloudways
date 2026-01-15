@@ -8,8 +8,8 @@ import { ReactLenis, useLenis } from "lenis/react";
 import HeroBannerClient from "./Hero/HeroBannerClient";
 import Agile from "./Agile/page";
 import MobileSustainaibility from "./Sustainaibility/mobile/MobileSustainaibility";
-import Screen from "./Stats/Screen";
-import Screen2 from "./Sustainaibility/Screen2";
+// import Screen from "./Stats/Screen";
+// import Screen2 from "./Sustainaibility/Screen2";
 import MobileScreen from "./Stats/MobileScreen";
 import useIdleRender from "@/hooks/useIdleRender";
 import MapSection from "./Map/MapSection";
@@ -54,12 +54,12 @@ const HomeWrapper = ({ heroData, testimonials = [] }) => {
         )}
 
         {/* :turtle: Heavy shit renders last */}
-        {heavyReady && (
+        {/* {heavyReady && (
           <>
             <Screen />
             <Screen2 />
           </>
-        )}
+        )} */}
       </div>
     </ReactLenis>
   );
