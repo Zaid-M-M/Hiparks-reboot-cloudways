@@ -9,14 +9,23 @@ import MobileScreen from "./Stats/MobileScreen";
 
 // Dynamically import below-the-fold components
 const MapSection = dynamic(() => import("./Map/MapSection"), { ssr: false });
-const HomeMobileMapSection = dynamic(() => import("./Map/HomeMobileMapSection"), { ssr: false });
-const IntegratedSolutionsSection = dynamic(() => import("./IntegratedSolutions/IntegratedSolutionsSection"));
+const HomeMobileMapSection = dynamic(
+  () => import("./Map/HomeMobileMapSection"),
+  { ssr: false }
+);
+const IntegratedSolutionsSection = dynamic(() =>
+  import("./IntegratedSolutions/IntegratedSolutionsSection")
+);
 const KeySectors = dynamic(() => import("./keySectors"));
 const TestMain = dynamic(() => import("./testimonials/TestMain"));
 const BrandShowcase = dynamic(() => import("./Brands/BrandShowcase"));
 const Screen2 = dynamic(() => import("./Sustainaibility/Screen2"));
-const MobileSustainaibility = dynamic(() => import("./Sustainaibility/mobile/MobileSustainaibility"));
-const TabbedContentShowcase = dynamic(() => import("./TabbedContentShowcase/TabbedContentShowcase"));
+const MobileSustainaibility = dynamic(() =>
+  import("./Sustainaibility/mobile/MobileSustainaibility")
+);
+const TabbedContentShowcase = dynamic(() =>
+  import("./TabbedContentShowcase/TabbedContentShowcase")
+);
 
 const HomeWrapper = ({ heroData, testimonials = [] }) => {
   useLenis(() => {});
@@ -34,7 +43,7 @@ const HomeWrapper = ({ heroData, testimonials = [] }) => {
       <div className="w-full h-full bg-white">
         <HeroBannerClient heroData={heroData} />
         <Agile />
-        <Screen />
+        {/* <Screen /> */}
         <MobileScreen />
         <MapSection />
         <HomeMobileMapSection />
@@ -42,7 +51,7 @@ const HomeWrapper = ({ heroData, testimonials = [] }) => {
         <KeySectors />
         <TestMain testimonials={testimonials} />
         <BrandShowcase />
-        <Screen2 />
+        {/* <Screen2 /> */}
         <MobileSustainaibility />
         <TabbedContentShowcase />
       </div>
