@@ -60,30 +60,125 @@
 // };
 
 // export default HomeWrapper;
+
+// --------------------------------------------
+
+// "use client";
+// import React from "react";
+// import dynamic from "next/dynamic";
+// import TabbedContentShowcase from "./TabbedContentShowcase/TabbedContentShowcase";
+// import BrandShowcase from "./Brands/BrandShowcase";
+// import KeySectors from "./keySectors";
+// import IntegratedSolutionsSection from "./IntegratedSolutions/IntegratedSolutionsSection";
+// import { ReactLenis, useLenis } from "lenis/react";
+// import HeroBannerClient from "./Hero/HeroBannerClient";
+// import Agile from "./Agile/page";
+// import MobileSustainaibility from "./Sustainaibility/mobile/MobileSustainaibility";
+// // import Screen from "./Stats/Screen";
+// // import Screen2 from "./Sustainaibility/Screen2";
+// import MobileScreen from "./Stats/MobileScreen";
+// import MapSection from "./Map/MapSection";
+// import HomeMobileMapSection from "./Map/HomeMobileMapSection";
+// import TestMain from "./testimonials/TestMain";
+// import useIdleRender from "@/hooks/useIdleRender";
+// // import CardShowcase from "./Hero/CardShowcase";
+
+// // Lazy heavy components
+// const Screen = dynamic(() => import("./Stats/Screen"), {
+//   ssr: false,
+// });
+
+// const Screen2 = dynamic(() => import("./Sustainaibility/Screen2"), {
+//   ssr: false,
+// });
+
+// const HomeWrapper = ({ heroData, testimonials = [] }) => {
+//   useLenis(() => {});
+
+//   const normalReady = useIdleRender(); // rest of the page
+//   const heavyReady = useIdleRender(800); // Screen & Screen2 dead last
+
+//   return (
+//     <ReactLenis
+//       root
+//       options={{
+//         lerp: 0.07,
+//         wheelMultiplier: 1.2,
+//         smoothWheel: true,
+//         smoothTouch: false,
+//       }}
+//     >
+//       <div className="w-full h-full bg-white">
+//         {/* :fire: Priority render */}
+//         <HeroBannerClient heroData={heroData} />
+//         <Agile />
+//         {heavyReady && (
+//           <>
+//             <Screen />
+//           </>
+//         )}
+//         {/* :bricks: Normal render */}
+//         {normalReady && (
+//           <>
+//             <MobileScreen />
+//             <MapSection />
+//             <HomeMobileMapSection />
+//             <IntegratedSolutionsSection />
+//             <KeySectors />
+//             <TestMain testimonials={testimonials} />
+//             <BrandShowcase />
+//             <MobileSustainaibility />
+//             <TabbedContentShowcase />
+//           </>
+//         )}
+
+//         {/* :turtle: Heavy shit renders last */}
+//         {heavyReady && (
+//           <>
+//             <Screen2 />
+//           </>
+//         )}
+//       </div>
+//     </ReactLenis>
+//   );
+// };
+
+// export default HomeWrapper;
+
 "use client";
 import React from "react";
-import TabbedContentShowcase from "./TabbedContentShowcase/TabbedContentShowcase";
-import BrandShowcase from "./Brands/BrandShowcase";
-import KeySectors from "./keySectors";
-import IntegratedSolutionsSection from "./IntegratedSolutions/IntegratedSolutionsSection";
+import dynamic from "next/dynamic";
 import { ReactLenis, useLenis } from "lenis/react";
+
 import HeroBannerClient from "./Hero/HeroBannerClient";
 import Agile from "./Agile/page";
-import MobileSustainaibility from "./Sustainaibility/mobile/MobileSustainaibility";
-import Screen from "./Stats/Screen";
-import Screen2 from "./Sustainaibility/Screen2";
+
 import MobileScreen from "./Stats/MobileScreen";
 import MapSection from "./Map/MapSection";
 import HomeMobileMapSection from "./Map/HomeMobileMapSection";
+import IntegratedSolutionsSection from "./IntegratedSolutions/IntegratedSolutionsSection";
+import KeySectors from "./keySectors";
 import TestMain from "./testimonials/TestMain";
+import BrandShowcase from "./Brands/BrandShowcase";
+import MobileSustainaibility from "./Sustainaibility/mobile/MobileSustainaibility";
+import TabbedContentShowcase from "./TabbedContentShowcase/TabbedContentShowcase";
+
 import useIdleRender from "@/hooks/useIdleRender";
-// import CardShowcase from "./Hero/CardShowcase";
+
+// Heavy components lazy loaded
+const Screen = dynamic(() => import("./Stats/Screen"), {
+  ssr: false,
+});
+
+const Screen2 = dynamic(() => import("./Sustainaibility/Screen2"), {
+  ssr: false,
+});
 
 const HomeWrapper = ({ heroData, testimonials = [] }) => {
   useLenis(() => {});
 
-  const normalReady = useIdleRender(); // rest of the page
-  const heavyReady = useIdleRender(600); // Screen & Screen2 dead last
+  const normalReady = useIdleRender();
+  const heavyReady = useIdleRender(800);
 
   return (
     <ReactLenis
@@ -96,15 +191,14 @@ const HomeWrapper = ({ heroData, testimonials = [] }) => {
       }}
     >
       <div className="w-full h-full bg-white">
-        {/* :fire: Priority render */}
+        {/* Priority Content */}
         <HeroBannerClient heroData={heroData} />
         <Agile />
-        {heavyReady && (
-          <>
-            <Screen />
-          </>
-        )}
-        {/* :bricks: Normal render */}
+
+        {/* Heavy component loads only when browser is idle */}
+        {heavyReady && <Screen />}
+
+        {/* Normal below-the-fold content */}
         {normalReady && (
           <>
             <MobileScreen />
@@ -119,12 +213,8 @@ const HomeWrapper = ({ heroData, testimonials = [] }) => {
           </>
         )}
 
-        {/* :turtle: Heavy shit renders last */}
-        {heavyReady && (
-          <>
-            <Screen2 />
-          </>
-        )}
+        {/* Heaviest component LAST */}
+        {heavyReady && <Screen2 />}
       </div>
     </ReactLenis>
   );
