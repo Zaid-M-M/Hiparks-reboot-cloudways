@@ -99,7 +99,11 @@ const HomeWrapper = ({ heroData, testimonials = [] }) => {
         {/* :fire: Priority render */}
         <HeroBannerClient heroData={heroData} />
         <Agile />
-
+        {heavyReady && (
+          <>
+            <Screen />
+          </>
+        )}
         {/* :bricks: Normal render */}
         {normalReady && (
           <>
@@ -118,7 +122,6 @@ const HomeWrapper = ({ heroData, testimonials = [] }) => {
         {/* :turtle: Heavy shit renders last */}
         {heavyReady && (
           <>
-            <Screen />
             <Screen2 />
           </>
         )}
