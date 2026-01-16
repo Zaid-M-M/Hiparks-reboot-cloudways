@@ -132,7 +132,6 @@
 // }
 
 "use client";
-import { ReactLenis } from "lenis/react";
 import { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Sustainaibility from "./Sustainaibility";
@@ -242,48 +241,42 @@ export default function Screen2() {
   );
 
   return (
-    <ReactLenis root>
-      <section
-        ref={containerRef}
-        style={{ height: scrollHeight ? `${scrollHeight + 200}px` : "100vh" }}
-        className="relative w-full bg-white h-full lg:flex hidden"
-      >
-        {/* Sticky canvas */}
-        <div className="sticky top-0 h-screen w-full overflow-hidden">
-          <canvas
-            ref={canvasRef}
-            className="absolute right-0 top-1/2 -translate-y-1/2 w-full h-full object-cover"
-          />
+    <section
+      ref={containerRef}
+      style={{ height: scrollHeight ? `${scrollHeight + 200}px` : "100vh" }}
+      className="relative w-full bg-white h-full lg:flex hidden"
+    >
+      {/* Sticky canvas */}
+      <div className="sticky top-0 h-screen w-full overflow-hidden">
+        <canvas
+          ref={canvasRef}
+          className="absolute right-0 top-1/2 -translate-y-1/2 w-full h-full object-cover"
+        />
 
-          <motion.div
-            style={{
-              y: useTransform(
-                scrollYProgress,
-                [0.55, 0.75, 0.95],
-                [200, 0, -50]
-              ), // appear earlier
-              opacity: useTransform(
-                scrollYProgress,
-                [0.55, 0.65, 0.9, 1],
-                [0, 1, 1, 0.8]
-              ), // hold opacity
-              scale: useTransform(scrollYProgress, [0.55, 0.75], [0.9, 1]),
-              filter: useTransform(
-                scrollYProgress,
-                [0.55, 0.6],
-                ["blur(20px)", "blur(0px)"]
-              ), // short blur
-            }}
-            transition={{
-              duration: 0.6,
-              ease: [0.4, 0, 0.2, 1],
-            }}
-            className="absolute bottom-6 right-[max(5%,calc((100vw-1340px)/2))] left-[max(5%,calc((100vw-1340px)/2))]"
-          >
-            <Sustainaibility />
-          </motion.div>
-        </div>
-      </section>
-    </ReactLenis>
+        <motion.div
+          style={{
+            y: useTransform(scrollYProgress, [0.55, 0.75, 0.95], [200, 0, -50]), // appear earlier
+            opacity: useTransform(
+              scrollYProgress,
+              [0.55, 0.65, 0.9, 1],
+              [0, 1, 1, 0.8]
+            ), // hold opacity
+            scale: useTransform(scrollYProgress, [0.55, 0.75], [0.9, 1]),
+            filter: useTransform(
+              scrollYProgress,
+              [0.55, 0.6],
+              ["blur(20px)", "blur(0px)"]
+            ), // short blur
+          }}
+          transition={{
+            duration: 0.6,
+            ease: [0.4, 0, 0.2, 1],
+          }}
+          className="absolute bottom-6 right-[max(5%,calc((100vw-1340px)/2))] left-[max(5%,calc((100vw-1340px)/2))]"
+        >
+          <Sustainaibility />
+        </motion.div>
+      </div>
+    </section>
   );
 }

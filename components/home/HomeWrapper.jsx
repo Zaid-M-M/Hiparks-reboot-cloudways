@@ -37,7 +37,7 @@ const HomeWrapper = ({ heroData, testimonials = [] }) => {
         {/* :fire: Priority render */}
         <HeroBannerClient heroData={heroData} />
         <Agile />
-        {normalReady && (
+        {heavyReady && (
           <>
             <Screen />
           </>
@@ -53,16 +53,16 @@ const HomeWrapper = ({ heroData, testimonials = [] }) => {
             <TestMain testimonials={testimonials} />
             <BrandShowcase />
             <MobileSustainaibility />
-            <TabbedContentShowcase />
           </>
         )}
-
         {/* :turtle: Heavy components render last */}
-        {normalReady && (
+        {heavyReady && (
           <>
             <Screen2 />
+            {/* <CardShowcase /> */}
           </>
         )}
+        {normalReady && <TabbedContentShowcase />}
       </div>
     </ReactLenis>
   );
