@@ -206,7 +206,7 @@ export default function HeroBannerClient() {
         autoPlay
         muted
         loop
-        preload="none"
+        preload="metadata"
         poster="/home/home_banner_desk.webp"
         playsInline
         className="absolute top-0 left-0 w-full h-full object-cover z-0 lg:block hidden"
@@ -214,6 +214,7 @@ export default function HeroBannerClient() {
         <source
           src="https://phpstack-725513-2688800.cloudwaysapps.com/cms/wp-content/uploads/2026/01/home_desk_1.mp4"
           type="video/mp4"
+          fetchpriority="high"
         />
         {/* <source src="/home/home_desk_1.mp4" type="video/mp4" /> */}
       </video>
@@ -230,8 +231,7 @@ export default function HeroBannerClient() {
         autoPlay
         muted
         loop
-        preload="none"
-        priority
+        preload="metadata"
         poster="/home/home_banner_mob.webp"
         playsInline
         className="absolute top-0 left-0 w-full h-full object-cover z-0 lg:hidden block "
@@ -240,6 +240,7 @@ export default function HeroBannerClient() {
         <source
           src="https://phpstack-725513-2688800.cloudwaysapps.com/cms/wp-content/uploads/2026/01/home_mob_1.mp4"
           type="video/mp4"
+          fetchpriority="high"
           className=""
         />
       </video>

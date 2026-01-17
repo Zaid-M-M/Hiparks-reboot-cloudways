@@ -135,10 +135,33 @@ export default function RootLayout({ children }) {
       <head>
         {/* Preconnect to external domains */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://phpstack-725513-2688800.cloudwaysapps.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preconnect"
+          href="https://phpstack-725513-2688800.cloudwaysapps.com"
+        />
+        <link
+          rel="dns-prefetch"
+          href="https://phpstack-725513-2688800.cloudwaysapps.com"
+        />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://code.tidio.co" />
+        <link
+          rel="preload"
+          as="image"
+          href="/home/home_banner_desk.webp"
+          fetchpriority="high"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/home/home_banner_mob.webp"
+          fetchpriority="high"
+        />
       </head>
       <body className="antialiased">
         {/* ✅ Schema (THIS WORKS IN APP ROUTER) */}
