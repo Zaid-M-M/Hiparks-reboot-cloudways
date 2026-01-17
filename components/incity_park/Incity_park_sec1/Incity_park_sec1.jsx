@@ -3,12 +3,13 @@ import React from "react";
 const Incity_park_sec1 = () => {
   return (
     <div>
+      {/* metadata added */}
       <div className="relative w-full h-[50vh] md:h-[70vh] lg:h-[80vh]  xl:h-[calc(100vh-80px)]  overflow-hidden  md:aspect-[16/8] aspect-[9/15] ">
         <video
           autoPlay
           muted
           loop
-          preload="auto"
+          preload="metadata"
           poster="https://phpstack-725513-2688800.cloudwaysapps.com/cms/wp-content/uploads/2026/01/Incity_banner_video.png"
           playsInline
           className="absolute top-0 left-0 w-full h-full object-cover object-bottom z-0 hidden md:block"
@@ -46,7 +47,7 @@ const Incity_park_sec1 = () => {
           autoPlay
           muted
           loop
-          preload="auto"
+          preload="metadata"
           playsInline
           className="absolute top-0 left-0 w-full h-full object-cover object-[0_60%] z-0 block md:hidden"
         >
