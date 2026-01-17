@@ -197,7 +197,7 @@ const Header = () => {
             // transition={{ duration: 1, ease: [0.7, 0, 0.4, 1], delay: 0.5 }}
           >
             <img
-              src="/abstract_pattern.svg"
+              src="/Hiparks-patter.webp"
               alt="Truck"
               className="abstract_svg mb-0"
             />
@@ -210,7 +210,7 @@ const Header = () => {
             // transition={{ duration: 1, ease: [0.7, 0, 0.4, 1], delay: 0.5 }}
           >
             <img
-              src="/abstract_pattern.svg"
+              src="/Hiparks-patter.webp"
               alt="Truck"
               className="abstract_svg"
             />

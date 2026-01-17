@@ -343,14 +343,14 @@ const Agile = () => {
                 <motion.div className="relative inline-block overflow-hidden sm:align-middle w-full max-w-[249px] h-auto">
                   <motion.div className="lg:flex hidden justify-start items-center h-[58px] overflow-hidden">
                     <img
-                      src="/abstract_pattern.svg"
+                      src="/Hiparks-patter.webp"
                       alt="Truck"
                       className="abstract_svg"
                     />
                   </motion.div>
                   <motion.div className="lg:hidden flex items-center justify-start h-[35px] sm:h-[40px] overflow-hidden">
                     <img
-                      src="/abstract_pattern.svg"
+                      src="/Hiparks-patter.webp"
                       alt="Truck"
                       className="abstract_svg"
                     />

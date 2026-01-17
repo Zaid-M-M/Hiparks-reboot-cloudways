@@ -311,7 +311,7 @@ const TabbedContentShowcase = () => {
               </h2>
               <span className="mt-2">
                 <img
-                  src="/abstract_pattern.svg"
+                  src="/Hiparks-patter.webp"
                   className="abstract_svg"
                   alt=""
                 />

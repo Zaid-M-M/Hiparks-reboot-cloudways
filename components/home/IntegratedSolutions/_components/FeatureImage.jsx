@@ -407,7 +407,7 @@ export default function ImageSection() {
         className="overflow-hidden w-full h-auto relative "
       >
         <img
-          src="/home/Integrated/arr.png"
+          src="/home/Integrated/arr.webp"
           alt="Integrated Solutions"
           className="w-full h-auto relative z-20 object-contain"
         />
@@ -443,7 +443,7 @@ export default function ImageSection() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
-      // variants={{}}
+        // variants={{}}
       >
         {/* <motion.div
           variants={scaleIn}

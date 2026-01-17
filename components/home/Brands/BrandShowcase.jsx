@@ -28,11 +28,7 @@ const BrandShowcase = () => {
               Who Trust Us
             </motion.span>
             <span className="mt-1 ">
-              <img
-                src="/abstract_pattern.svg"
-                className="abstract_svg"
-                alt=""
-              />
+              <img src="/Hiparks-patter.webp" className="abstract_svg" alt="" />
             </span>
           </div>
         </motion.h2>

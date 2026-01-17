@@ -10,7 +10,7 @@ const TestHead = () => {
         <span className="bw-r lg:text-[64px] md:text-[45px] text-[32px] leading-[120%]">
           Real Impact
         </span>
-        <img src="/abstract_pattern.svg" className="abstract_svg" />
+        <img src="/Hiparks-patter.webp" className="abstract_svg" />
       </span>
     </div>
   );
