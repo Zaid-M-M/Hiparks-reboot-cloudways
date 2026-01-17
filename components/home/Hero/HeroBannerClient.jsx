@@ -207,7 +207,6 @@ export default function HeroBannerClient() {
         muted
         loop
         preload="none"
-        loading="lazy"
         poster="https://phpstack-725513-2688800.cloudwaysapps.com/cms/wp-content/uploads/2026/01/home_banner_desk.jpg"
         playsInline
         className="absolute top-0 left-0 w-full h-full object-cover z-0 lg:block hidden"
@@ -232,7 +231,6 @@ export default function HeroBannerClient() {
         muted
         loop
         preload="none"
-        loading="lazy"
         poster="https://phpstack-725513-2688800.cloudwaysapps.com/cms/wp-content/uploads/2026/01/home_banner_mob.jpg"
         playsInline
         className="absolute top-0 left-0 w-full h-full object-cover z-0 lg:hidden block "
