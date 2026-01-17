@@ -37,24 +37,28 @@ const HomeWrapper = ({ heroData, testimonials = [] }) => {
         {/* :fire: Priority render */}
         <HeroBannerClient heroData={heroData} />
         <Agile />
-        {heavyReady && <>{/* <Screen /> */}</>}
+        {heavyReady && (
+          <>
+            <Screen />
+          </>
+        )}
         {/* :bricks: Normal render */}
         {normalReady && (
           <>
-            {/* <MobileScreen /> */}
+            <MobileScreen />
             <MapSection />
             <HomeMobileMapSection />
             <IntegratedSolutionsSection />
-            {/* <KeySectors /> */}
+            <KeySectors />
             <TestMain testimonials={testimonials} />
             <BrandShowcase />
-            {/* <MobileSustainaibility /> */}
+            <MobileSustainaibility />
           </>
         )}
         {/* :turtle: Heavy components render last */}
         {heavyReady && (
           <>
-            {/* <Screen2 /> */}
+            <Screen2 />
             {/* <CardShowcase /> */}
           </>
         )}
