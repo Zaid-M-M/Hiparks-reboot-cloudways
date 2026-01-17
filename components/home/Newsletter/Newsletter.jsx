@@ -87,7 +87,7 @@ const Newsletter = () => {
         "service_38rulc9", // your service ID
         "template_y80dvie", // your EmailJS template for Join Us
         formRef.current,
-        "SsPYHKCapw4h-xBn_" // your public key
+        "SsPYHKCapw4h-xBn_", // your public key
       );
 
       // ✅ Send to Google Sheets
@@ -114,7 +114,7 @@ const Newsletter = () => {
   return (
     <div
       className="h-full lg:h-[464px] overflow-hidden w-full relative bg-cover  bg-center"
-      style={{ backgroundImage: "url('/Newsletter_bg.jpg')" }}
+      style={{ backgroundImage: "url('/Newsletter_bg.webp')" }}
     >
       <div className="fix">
         <div className="flex items-center sm:items-end md:justify-center lg:justify-between ">

@@ -207,7 +207,7 @@ export default function HeroBannerClient() {
         muted
         loop
         preload="none"
-        poster="https://phpstack-725513-2688800.cloudwaysapps.com/cms/wp-content/uploads/2026/01/home_banner_desk.jpg"
+        poster="/home/home_banner_desk.webp"
         playsInline
         className="absolute top-0 left-0 w-full h-full object-cover z-0 lg:block hidden"
       >
@@ -231,7 +231,8 @@ export default function HeroBannerClient() {
         muted
         loop
         preload="none"
-        poster="https://phpstack-725513-2688800.cloudwaysapps.com/cms/wp-content/uploads/2026/01/home_banner_mob.jpg"
+        priority
+        poster="/home/home_banner_mob.webp"
         playsInline
         className="absolute top-0 left-0 w-full h-full object-cover z-0 lg:hidden block "
       >
@@ -265,6 +266,7 @@ export default function HeroBannerClient() {
                 src="/leftcon.png"
                 alt="Left Container"
                 fill
+                priority
                 className="object-cover "
               />
 
@@ -284,6 +286,7 @@ export default function HeroBannerClient() {
                         src="/whiteexternal.svg"
                         width={25}
                         height={25}
+                        priority
                         alt="External"
                       />
                     </span>
@@ -296,6 +299,7 @@ export default function HeroBannerClient() {
                     src="/employee.png"
                     alt="Horizon"
                     fill
+                    priority
                     className="object-contain"
                   />
                 </div>
@@ -321,6 +325,7 @@ export default function HeroBannerClient() {
                 src="/rightcon.png"
                 alt="Right Container"
                 fill
+                priority
                 className="object-cover"
               />
 
@@ -338,6 +343,7 @@ export default function HeroBannerClient() {
                     <img
                       src="/whiteexternal.svg"
                       alt="External link"
+                      priority
                       className="w-[16px] h-[16px] 1280:w-[24px] 1280:h-[24px]"
                     />
                   </div>
@@ -355,6 +361,7 @@ export default function HeroBannerClient() {
                     <img
                       src="/whiteexternal.svg"
                       alt="External link"
+                      priority
                       className="w-[16px] h-[16px] 1280:w-[24px] 1280:h-[24px]"
                     />
                   </div>
